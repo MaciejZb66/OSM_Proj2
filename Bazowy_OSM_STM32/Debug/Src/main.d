@@ -29,6 +29,7 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ ../Inc/dma.h ../Inc/main.h ../Inc/rng.h ../Inc/spi.h ../Inc/gpio.h \
  ../Inc/ll_spi_ili9341.h ../Inc/fonts.h
 ../Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h:
@@ -61,5 +62,10 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+../Inc/dma.h:
+../Inc/main.h:
+../Inc/rng.h:
+../Inc/spi.h:
+../Inc/gpio.h:
 ../Inc/ll_spi_ili9341.h:
 ../Inc/fonts.h:
