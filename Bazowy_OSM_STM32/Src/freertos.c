@@ -266,14 +266,12 @@ void StartTaskLED2(void *argument)
   /* Infinite loop */
 	for(;;)
 	{
-
-
 	  LL_GPIO_TogglePin(GPIOG, LL_GPIO_PIN_14);
 
 	  osDelay(1000);
 	  osSemaphoreRelease(BinarySem01Handle);	//zwolnienie semafora i odblokowanie TaskLED1
 
-	  ;
+
 	}
   /* USER CODE END StartTaskLED2 */
 }
@@ -306,10 +304,28 @@ void Reg_task_init(void *argument)
 void StartRead_Peripheral(void *argument)
 {
   /* USER CODE BEGIN StartRead_Peripheral */
+	LL_ADC_REG_StartConversion(ADC1);
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+		  osDelay(1);
+	  }
+	  adc_data_pot1 = LL_ADC_REG_ReadConversionData12(ADC1);
+	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+		  osDelay(1);
+	  }
+	  adc_data_pot2 = LL_ADC_REG_ReadConversionData12(ADC1);
+	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+		  osDelay(1);
+	  }
+	  adc_data_pot3 = LL_ADC_REG_ReadConversionData12(ADC1);
+	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+		  osDelay(1);
+	  }
+	  adc_data_pot3 = LL_ADC_REG_ReadConversionData12(ADC1);
+
+    osDelay(100);
   }
   /* USER CODE END StartRead_Peripheral */
 }
