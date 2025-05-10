@@ -48,19 +48,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t DmaSpiCnt=1;
-
-int x = 120, y = 160; // Skladowe x,y polozenia kwadratu
-int x_old = 120, y_old = 160;
-int dx = 1, dy = 1; // Skladowe wektora predkosci dx, dy
-
-unsigned char *ptr;
-unsigned char napis[] = {"Press the blue button..."};
-int dl_n = 24;
-unsigned int nx = 0;
-unsigned int ny = 280;
-unsigned int  key;
-
 
 /* USER CODE END PV */
 
@@ -74,17 +61,7 @@ void move_square_C(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void move_square_C(){
-//Aktualizacja po│ozenia na podstawie wektora predkosci
-		x+=dx;
-		y+=dy;
-//Ograniczenie obszaru poruszania kwadratem w obrebie LCD
-		if (x <= 1 || x >= 240 - 34)
-			dx = -dx;
-		if (y <= 1 || y >= 320 - 34)
-			dy = -dy;
-}
-
+extern uint8_t DmaSpiCnt;
 /* USER CODE END 0 */
 
 /**
@@ -94,7 +71,7 @@ void move_square_C(){
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	ptr = napis;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/

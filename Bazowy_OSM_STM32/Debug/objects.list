@@ -35,6 +35,8 @@
 "./Src/gpio.o"
 "./Src/ll_spi_ili9341.o"
 "./Src/main.o"
+"./Src/myfunctions.o"
+"./Src/reg2.o"
 "./Src/rng.o"
 "./Src/spi.o"
 "./Src/stm32f4xx_hal_msp.o"

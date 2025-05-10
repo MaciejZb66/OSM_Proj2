@@ -1,7 +1,0 @@
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h:939:22:LL_GPIO_TogglePin	1
-../Src/freertos.c:122:6:MX_FREERTOS_Init	1
-../Src/freertos.c:180:6:StartLCDTask	4
-../Src/freertos.c:239:6:StartTaskLED1	1
-../Src/freertos.c:263:6:StartTaskLED2	1
-../Src/freertos.c:286:6:Reg_task_init	1
-../Src/freertos.c:304:6:StartRead_Peripheral	1

@@ -27,6 +27,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ll_spi_ili9341.h"
+#include "reg2.h"
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +48,10 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+PID_s pid;
+Inercja_s in3;
+Inercja_s in4;
+float tp = 0.1;
 /* USER CODE END Variables */
 /* Definitions for LCD_Task */
 osThreadId_t LCD_TaskHandle;
@@ -188,6 +193,7 @@ void StartLCDTask(void *argument)
 //	  osDelay(500);
 	  TFTDisplay_ILI9341_FillScreen(TFT_COLOR_ILI9341_BLUE);
 	  osDelay(100);
+
 	  TFTDisplay_ILI9341_FillRect(5,5,35,35,TFT_COLOR_ILI9341_YELLOW );
 	  TFTDisplay_ILI9341_DrawClearRect(40,40, 80, 80, TFT_COLOR_ILI9341_RED);
 	  TFTDisplay_ILI9341_DrawCircle(140, 140, 50, TFT_COLOR_ILI9341_GREEN);
@@ -218,6 +224,7 @@ void StartLCDTask(void *argument)
 		  TFTDisplay_ILI9341_DrawChar(100, 100, 0x30 + i);
 		  osDelay(1000);
 	  }
+	  osDelay(1);
 //	  	TFTDisplay_ILI9341_FillRect(x, y, x+30, y+30, TFT_COLOR_ILI9341_RED);
 
 //	  	move_square_C();
@@ -286,10 +293,25 @@ void StartTaskLED2(void *argument)
 void Reg_task_init(void *argument)
 {
   /* USER CODE BEGIN Reg_task_init */
+	PID_s_init(&pid, 10, 3, 0.9, tp);
+	Inercja_s_init(&in3, 1, tp, 5);
+	Inercja_s_init(&in4, 2, tp, 3);
+	float expected = 0;
+	float output = 0;
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	pid.expected = expected;
+	pid.input = output;
+	Reg_s_step(&pid);
+	//output = pid.output;
+	in3.input = pid.output;
+	Inercja_s_step(&in3);
+	in4.input = in3.output;
+	Inercja_s_step(&in4);
+	output =  in4.output;
+	Draw_info((int)output, (int) expected, false);
+    osDelay(10);
   }
   /* USER CODE END Reg_task_init */
 }
@@ -304,27 +326,31 @@ void Reg_task_init(void *argument)
 void StartRead_Peripheral(void *argument)
 {
   /* USER CODE BEGIN StartRead_Peripheral */
-	LL_ADC_REG_StartConversion(ADC1);
+//	LL_ADC_REG_StartConversion(ADC1);
+//	int adc_data_pot1;
+//	int adc_data_pot2;
+//	int adc_data_pot3;
+//	int adc_data_pot4;
   /* Infinite loop */
   for(;;)
   {
-	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
-		  osDelay(1);
-	  }
-	  adc_data_pot1 = LL_ADC_REG_ReadConversionData12(ADC1);
-	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
-		  osDelay(1);
-	  }
-	  adc_data_pot2 = LL_ADC_REG_ReadConversionData12(ADC1);
-	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
-		  osDelay(1);
-	  }
-	  adc_data_pot3 = LL_ADC_REG_ReadConversionData12(ADC1);
-	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
-		  osDelay(1);
-	  }
-	  adc_data_pot3 = LL_ADC_REG_ReadConversionData12(ADC1);
-
+//	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+//		  osDelay(1);
+//	  }
+//	  adc_data_pot1 = LL_ADC_REG_ReadConversionData12(ADC1);
+//	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+//		  osDelay(1);
+//	  }
+//	  adc_data_pot2 = LL_ADC_REG_ReadConversionData12(ADC1);
+//	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+//		  osDelay(1);
+//	  }
+//	  adc_data_pot3 = LL_ADC_REG_ReadConversionData12(ADC1);
+//	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
+//		  osDelay(1);
+//	  }
+//	  adc_data_pot4 = LL_ADC_REG_ReadConversionData12(ADC1);
+//
     osDelay(100);
   }
   /* USER CODE END StartRead_Peripheral */
