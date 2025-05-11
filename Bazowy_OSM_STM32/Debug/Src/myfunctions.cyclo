@@ -1,0 +1,5 @@
+../Src/myfunctions.c:6:6:Draw_info	4
+../Src/myfunctions.c:26:6:SetPixel	1
+../Src/myfunctions.c:30:6:wykres_init	3
+../Src/myfunctions.c:46:6:wykres_draw	3
+../Src/myfunctions.c:58:6:wykres_show	3

@@ -249,13 +249,9 @@ void StartTaskLED1(void *argument)
   /* Infinite loop */
 	for(;;)
 	{
-
-	  osSemaphoreAcquire(BinarySem01Handle, osWaitForever);  //synchronizacja tasków - zwolnienie w TaskLED2
-
+	  // osSemaphoreAcquire(BinarySem01Handle, osWaitForever);  //synchronizacja tasków - zwolnienie w TaskLED2
 	  LL_GPIO_TogglePin(GPIOG, LL_GPIO_PIN_13);
-
-
-	  osDelay(100);
+	  osDelay(500);
 	}
   /* USER CODE END StartTaskLED1 */
 }
@@ -274,11 +270,8 @@ void StartTaskLED2(void *argument)
 	for(;;)
 	{
 	  LL_GPIO_TogglePin(GPIOG, LL_GPIO_PIN_14);
-
 	  osDelay(1000);
-	  osSemaphoreRelease(BinarySem01Handle);	//zwolnienie semafora i odblokowanie TaskLED1
-
-
+	  // osSemaphoreRelease(BinarySem01Handle);	//zwolnienie semafora i odblokowanie TaskLED1
 	}
   /* USER CODE END StartTaskLED2 */
 }
@@ -301,16 +294,16 @@ void Reg_task_init(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	pid.expected = expected;
-	pid.input = output;
-	Reg_s_step(&pid);
-	//output = pid.output;
-	in3.input = pid.output;
-	Inercja_s_step(&in3);
-	in4.input = in3.output;
-	Inercja_s_step(&in4);
-	output =  in4.output;
-	Draw_info((int)output, (int) expected, false);
+    pid.expected = expected;
+    pid.input = output;
+    Reg_s_step(&pid);
+    //output = pid.output;
+    in3.input = pid.output;
+    Inercja_s_step(&in3);
+    in4.input = in3.output;
+    Inercja_s_step(&in4);
+    output =  in4.output;
+    Draw_info((int)output, (int) expected, false);
     osDelay(10);
   }
   /* USER CODE END Reg_task_init */
@@ -334,6 +327,16 @@ void StartRead_Peripheral(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  if(LL_GPIO_ReadInputPort(GPIOC)==0x0800){
+		  pid.expected += 0.1;
+	  }
+	  if(LL_GPIO_ReadInputPort(GPIOC)==0x1000){
+		  pid.expected -= 0.1;
+	  }
+	  if(LL_GPIO_ReadInputPort(GPIOC)==0x2000){
+
+	  }
+
 //	  while (LL_ADC_IsActiveFlag_EOC(ADC1) == 0){
 //		  osDelay(1);
 //	  }
