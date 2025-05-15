@@ -28,6 +28,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ll_spi_ili9341.h"
+#include "myfunctions.h"
+#include "reg2.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

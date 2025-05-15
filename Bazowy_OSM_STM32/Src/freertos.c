@@ -194,8 +194,6 @@ void StartLCDTask(void *argument)
 	  TFTDisplay_ILI9341_FillScreen(TFT_COLOR_ILI9341_BLUE);
 	  osDelay(100);
 
-	  TFTDisplay_ILI9341_FillRect(5,5,35,35,TFT_COLOR_ILI9341_YELLOW );
-	  TFTDisplay_ILI9341_DrawClearRect(40,40, 80, 80, TFT_COLOR_ILI9341_RED);
 	  TFTDisplay_ILI9341_DrawCircle(140, 140, 50, TFT_COLOR_ILI9341_GREEN);
 
 
@@ -329,9 +327,11 @@ void StartRead_Peripheral(void *argument)
   {
 	  if(LL_GPIO_ReadInputPort(GPIOC)==0x0800){
 		  pid.expected += 0.1;
+		  TFTDisplay_ILI9341_DrawChar(100, 150, 0x31);
 	  }
 	  if(LL_GPIO_ReadInputPort(GPIOC)==0x1000){
 		  pid.expected -= 0.1;
+		  TFTDisplay_ILI9341_DrawChar(100, 150, 0x32);
 	  }
 	  if(LL_GPIO_ReadInputPort(GPIOC)==0x2000){
 

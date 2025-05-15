@@ -1,0 +1,3 @@
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:881:22:LL_AHB2_GRP1_ForceReset	16	static
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:906:22:LL_AHB2_GRP1_ReleaseReset	16	static
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rng.c:63:13:LL_RNG_DeInit	16	static
