@@ -1,0 +1,5 @@
+../Src/myfunctions.c:7:6:Draw_info	64	static
+../Src/myfunctions.c:30:6:SetPixel	24	static
+../Src/myfunctions.c:34:6:wykres_init	32	static
+../Src/myfunctions.c:50:6:wykres_draw	24	static
+../Src/myfunctions.c:62:6:wykres_show	24	static

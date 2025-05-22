@@ -1,0 +1,823 @@
+10:42:04 **** Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f429zitx.d" -MT"Startup/startup_stm32f429zitx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f429zitx.o" "../Startup/startup_stm32f429zitx.s"
+arm-none-eabi-gcc "../Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/freertos.d" -MT"Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/freertos.o"
+arm-none-eabi-gcc "../Src/ll_spi_ili9341.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/ll_spi_ili9341.d" -MT"Src/ll_spi_ili9341.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/ll_spi_ili9341.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/stm32f4xx_it.d" -MT"Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+../Src/stm32f4xx_it.c: In function 'DMA2_Stream4_IRQHandler':
+../Src/stm32f4xx_it.c:195:5: warning: implicit declaration of function 'DMA1_Stream4_TransferComplete' [-Wimplicit-function-declaration]
+  195 |     DMA1_Stream4_TransferComplete();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/system_stm32f4xx.d" -MT"Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/system_stm32f4xx.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/croutine.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/croutine.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/croutine.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/croutine.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/event_groups.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/event_groups.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/event_groups.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/list.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/list.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/list.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/list.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/queue.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/queue.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/queue.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/queue.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/tasks.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/tasks.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/tasks.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/tasks.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FreeRTOS/Source/timers.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/Third_Party/FreeRTOS/Source/timers.d" -MT"Middlewares/Third_Party/FreeRTOS/Source/timers.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FreeRTOS/Source/timers.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rng.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rng.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rng.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rng.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_spi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_spi.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_spi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_spi.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40464	    220	  86104	 126788	  1ef44	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:44:01 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40648	    220	  86112	 126980	  1f004	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:45:51 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask04':
+../Src/main.c:602:10: error: 'pid' undeclared (first use in this function)
+  602 |          pid.expected += 0.1;
+      |          ^~~
+../Src/main.c:602:10: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:37: Src/main.o] Error 1
+"make -j6 all" terminated with exit code 2. Build might be incomplete.
+10:46:02 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40700	    220	  86116	 127036	  1f03c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:47:29 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  39724	    196	  86116	 126036	  1ec54	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:50:00 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  39748	    196	  86116	 126060	  1ec6c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:53:50 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/freertos.d" -MT"Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/freertos.o"
+arm-none-eabi-gcc "../Src/ll_spi_ili9341.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/ll_spi_ili9341.d" -MT"Src/ll_spi_ili9341.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/ll_spi_ili9341.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/reg2.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/reg2.d" -MT"Src/reg2.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/reg2.o"
+arm-none-eabi-gcc "../Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/stm32f4xx_it.d" -MT"Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../Src/stm32f4xx_it.c: In function 'DMA2_Stream4_IRQHandler':
+../Src/stm32f4xx_it.c:195:5: warning: implicit declaration of function 'DMA1_Stream4_TransferComplete' [-Wimplicit-function-declaration]
+  195 |     DMA1_Stream4_TransferComplete();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/system_stm32f4xx.d" -MT"Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  39768	    196	  86112	 126076	  1ec7c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:55:16 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  39768	    196	  86112	 126076	  1ec7c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:56:40 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:629:11: warning: unused variable 'output' [-Wunused-variable]
+  629 |     float output = 0;
+      |           ^~~~~~
+../Src/main.c:628:11: warning: unused variable 'expected' [-Wunused-variable]
+  628 |     float expected = 0;
+      |           ^~~~~~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40012	    200	  86200	 126412	  1edcc	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:57:41 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  39884	    200	  86152	 126236	  1ed1c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+10:58:33 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40000	    200	  86196	 126396	  1edbc	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:01:23 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:628:9: warning: unused variable 'expected' [-Wunused-variable]
+  628 |     int expected = 0;
+      |         ^~~~~~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40004	    200	  86200	 126404	  1edc4	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:02:12 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:629:11: warning: unused variable 'output' [-Wunused-variable]
+  629 |     float output = 0;
+      |           ^~~~~~
+../Src/main.c:628:9: warning: unused variable 'expected' [-Wunused-variable]
+  628 |     int expected = 0;
+      |         ^~~~~~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40012	    200	  86200	 126412	  1edcc	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:02:54 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:629:11: warning: unused variable 'output' [-Wunused-variable]
+  629 |     float output = 0;
+      |           ^~~~~~
+../Src/main.c:628:11: warning: unused variable 'expected' [-Wunused-variable]
+  628 |     float expected = 0;
+      |           ^~~~~~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40012	    200	  86200	 126412	  1edcc	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:05:28 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:642:6: warning: implicit declaration of function 'Draw_info' [-Wimplicit-function-declaration]
+  642 |      Draw_info((int)output, (int) expected, false);
+      |      ^~~~~~~~~
+../Src/main.c:642:45: error: 'false' undeclared (first use in this function); did you mean 'fclose'?
+  642 |      Draw_info((int)output, (int) expected, false);
+      |                                             ^~~~~
+      |                                             fclose
+../Src/main.c:642:45: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:40: Src/main.o] Error 1
+"make -j6 all" terminated with exit code 2. Build might be incomplete.
+11:05:49 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40412	    200	  86200	 126812	  1ef5c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:08:52 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/freertos.d" -MT"Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/freertos.o"
+arm-none-eabi-gcc "../Src/ll_spi_ili9341.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/ll_spi_ili9341.d" -MT"Src/ll_spi_ili9341.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/ll_spi_ili9341.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc "../Src/reg2.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/reg2.d" -MT"Src/reg2.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/reg2.o"
+arm-none-eabi-gcc "../Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/stm32f4xx_it.d" -MT"Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/stm32f4xx_it.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+../Src/stm32f4xx_it.c: In function 'DMA2_Stream4_IRQHandler':
+../Src/stm32f4xx_it.c:195:5: warning: implicit declaration of function 'DMA1_Stream4_TransferComplete' [-Wimplicit-function-declaration]
+  195 |     DMA1_Stream4_TransferComplete();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/system_stm32f4xx.d" -MT"Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40412	    200	  86200	 126812	  1ef5c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:09:48 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:10:53 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40832	    200	  86196	 127228	  1f0fc	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:11:41 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  40412	    200	  86200	 126812	  1ef5c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:12:49 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41556	    200	  86200	 127956	  1f3d4	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:13:58 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41616	    200	  86196	 128012	  1f40c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:14:47 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:7:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    7 |     unsigned char data[]= "Temp:  .  Set:  .  Okno: ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41924	    200	  86200	 128324	  1f544	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:15:39 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:18:25 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:19:03 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:20:37 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:21:27 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:23:17 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:24:35 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:26:14 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41948	    200	  86200	 128348	  1f55c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:27:05 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41948	    200	  86200	 128348	  1f55c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:27:46 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41948	    200	  86200	 128348	  1f55c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:28:37 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41976	    200	  86196	 128372	  1f574	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:29:57 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41980	    200	  86200	 128380	  1f57c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:31:00 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41988	    200	  86200	 128388	  1f584	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:32:35 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41968	    200	  86196	 128364	  1f56c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:37:39 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:24:48: warning: passing argument 3 of 'TFTDisplay_ILI9341_DrawChar' makes integer from pointer without a cast [-Wint-conversion]
+   24 |      TFTDisplay_ILI9341_DrawChar(5 + i * 6, 5, &data[i]); //nie działa
+      |                                                ^~~~~~~~
+      |                                                |
+      |                                                unsigned char *
+In file included from ../Inc/myfunctions.h:4,
+                 from ../Src/myfunctions.c:1:
+../Inc/ll_spi_ili9341.h:156:66: note: expected 'uint8_t' {aka 'unsigned char'} but argument is of type 'unsigned char *'
+  156 | void TFTDisplay_ILI9341_DrawChar(uint16_t x, uint16_t y, uint8_t c);
+      |                                                          ~~~~~~~~^
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41968	    200	  86196	 128364	  1f56c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:39:47 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:21:41: warning: passing argument 3 of 'TFTDisplay_ILI9341_DrawChar' makes integer from pointer without a cast [-Wint-conversion]
+   21 |     TFTDisplay_ILI9341_DrawChar(10, 10, &data[5]);
+      |                                         ^~~~~~~~
+      |                                         |
+      |                                         unsigned char *
+In file included from ../Inc/myfunctions.h:4,
+                 from ../Src/myfunctions.c:1:
+../Inc/ll_spi_ili9341.h:156:66: note: expected 'uint8_t' {aka 'unsigned char'} but argument is of type 'unsigned char *'
+  156 | void TFTDisplay_ILI9341_DrawChar(uint16_t x, uint16_t y, uint8_t c);
+      |                                                          ~~~~~~~~^
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41932	    200	  86200	 128332	  1f54c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:40:43 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:7:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    7 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41924	    200	  86200	 128324	  1f544	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:41:16 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:7:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    7 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41924	    200	  86200	 128324	  1f544	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:42:02 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:7:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    7 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41924	    200	  86200	 128324	  1f544	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:42:24 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:7:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    7 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41916	    200	  86200	 128316	  1f53c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:43:31 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:8:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    8 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41916	    200	  86200	 128316	  1f53c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:44:10 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:8:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    8 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  41924	    200	  86200	 128324	  1f544	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:46:56 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/myfunctions.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/myfunctions.d" -MT"Src/myfunctions.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/myfunctions.o"
+../Src/myfunctions.c: In function 'Draw_info':
+../Src/myfunctions.c:8:19: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+    8 |     unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                   ^~~~
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:656:7: error: 'window' undeclared (first use in this function)
+  656 |    if(window){
+      |       ^~~~~~
+../Src/main.c:656:7: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:648:18: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+  648 |    unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                  ^~~~
+make: *** [Src/subdir.mk:43: Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j6 all" terminated with exit code 2. Build might be incomplete.
+11:47:35 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:649:18: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+  649 |    unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                  ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  42280	    200	  86196	 128676	  1f6a4	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:48:16 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'StartTask05':
+../Src/main.c:649:18: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+  649 |    unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+      |                  ^~~~
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  42268	    200	  86200	 128668	  1f69c	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
+11:49:45 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  42324	    200	  86200	 128724	  1f6d4	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 

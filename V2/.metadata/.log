@@ -1,0 +1,90 @@
+!SESSION 2025-05-20 10:17:28.604 -----------------------------------------------
+eclipse.buildId=Version 1.9.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-05-20 10:18:11.171
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-05-20 10:18:11.218
+!MESSAGE Log4j initialized with config file C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V2\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-05-20 10:18:13.481
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-05-20 10:18:26.780 -----------------------------------------------
+eclipse.buildId=Version 1.9.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pl_PL
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/Users/Student/Desktop/245626,245585/OSM_Proj2/V2/
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-05-20 10:18:30.065
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-05-20 10:18:30.111
+!MESSAGE Log4j initialized with config file C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V2\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-05-20 10:18:32.602
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-05-20 10:18:54.468
+!MESSAGE Indexed 'Bazowy_OSM_STM32' (26 sources, 132 headers) in 2,52 sec: 11 992 declarations; 39 550 references; 2 unresolved inclusions; 152 syntax errors; 146 unresolved names (0,28%)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2025-05-20 10:20:34.867
+!MESSAGE Breakpoint already removed
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10005 2025-05-20 10:20:34.867
+!MESSAGE Breakpoint already removed
+
+!ENTRY org.eclipse.core.resources 4 77 2025-05-20 10:25:29.811
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2025-05-20 10:25:29.811
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2025-05-20 10:25:29.811
+!MESSAGE C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V2\Bazowy_OSM_STM32 overlaps the location of another project: 'Bazowy_OSM_STM32'
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2025-05-20 10:27:23.961
+!MESSAGE Breakpoint already removed
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10005 2025-05-20 10:27:23.961
+!MESSAGE Breakpoint already removed
+
+!ENTRY org.eclipse.core.resources 4 77 2025-05-20 10:29:58.902
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2025-05-20 10:29:58.902
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2025-05-20 10:29:58.902
+!MESSAGE C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V2\Bazowy_OSM_STM32 overlaps the location of another project: 'Bazowy_OSM_STM32'
+
+!ENTRY org.eclipse.core.resources 4 77 2025-05-20 10:30:13.488
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2025-05-20 10:30:13.488
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2025-05-20 10:30:13.488
+!MESSAGE C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V2\Bazowy_OSM_STM32 overlaps the location of another project: 'Bazowy_OSM_STM32'
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2025-05-20 10:30:25.836
+!MESSAGE Breakpoint already removed
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10005 2025-05-20 10:30:25.836
+!MESSAGE Breakpoint already removed
+
+!ENTRY org.eclipse.core.jobs 4 2 2025-05-20 10:38:05.676
+!MESSAGE An internal error occurred during: "Execute Debug Command".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: The application has not been initialized.
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:113)
+	at org.eclipse.core.internal.runtime.InternalPlatform.assertInitialized(InternalPlatform.java:139)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getAdapterManager(InternalPlatform.java:160)
+	at org.eclipse.core.runtime.Platform.getAdapterManager(Platform.java:649)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunch.getAdapter(GdbLaunch.java:454)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunch.disconnect(GdbLaunch.java:338)
+	at org.eclipse.debug.internal.core.commands.DisconnectCommand.execute(DisconnectCommand.java:35)
+	at org.eclipse.debug.internal.core.commands.ForEachCommand.doExecute(ForEachCommand.java:36)
+	at org.eclipse.debug.core.commands.AbstractDebugCommand$1.run(AbstractDebugCommand.java:215)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-05-20 10:38:06.084
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.core.DebugPlugin$EventDispatchJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-05-20 10:38:06.086
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
