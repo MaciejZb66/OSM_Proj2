@@ -5,7 +5,7 @@ unsigned short int *const LCD_FB = (unsigned short int*) 0xD0000000;
 unsigned short int *const LCD_BUF = (unsigned short int*) 0xD0100000;
 
 void Draw_info(int real_temp, int exp_temp, bool window){
-    unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
+    unsigned char data[]= "Temp:  .  Set:  .  Okno";
     if(real_temp > 500) real_temp = 500;
     data[5] = real_temp / 100 + '0';
     data[6] = ((real_temp / 10) - (real_temp / 100 * 10)) + '0';
@@ -13,18 +13,15 @@ void Draw_info(int real_temp, int exp_temp, bool window){
     data[14] = exp_temp / 100 + '0';
     data[15] = ((exp_temp / 10) - (exp_temp / 100 * 10)) + '0';
     data[17] = exp_temp % 10 + '0';
-    if(window){
-        data[24] = '1';
-    }else{
-        data[24] = '0';
-    }
-    data[25] = '\0';  // jeśli wpisujesz znak w data[24]
-//    TFTDisplay_ILI9341_DrawChar(200, 150, 0x38);
-//    TFTDisplay_ILI9341_DrawChar(16, 10, data[6]);
-//    for(int i = 0; i < 25; i++){
-//    	TFTDisplay_ILI9341_DrawChar(5 + i * 6, 5, data[i]); //nie działa
-//    }
 
+    for(int i = 0; i < 23; i++){
+    	TFTDisplay_ILI9341_DrawChar(i * 10, 2, data[i]); //nie działa
+    }
+    if(!window){
+        TFTDisplay_ILI9341_DrawLine(190, 9, 230, 9, 0x07E0);
+        TFTDisplay_ILI9341_DrawLine(190, 8, 230, 8, 0x07E0);
+        TFTDisplay_ILI9341_DrawLine(190, 7, 230, 7, 0x07E0);
+    }
 }
 
 void SetPixel(int x, int y, uint16_t color){	

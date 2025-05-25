@@ -35,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+extern bool led_inited;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -44,6 +44,7 @@ PID_s pid;
 Inercja_s in3;
 Inercja_s in4;
 float tp = 0.1;
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -54,20 +55,6 @@ const osThreadAttr_t LCD_Task_attributes = {
   .name = "LCD_Task",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for LED1_task */
-osThreadId_t LED1_taskHandle;
-const osThreadAttr_t LED1_task_attributes = {
-  .name = "LED1_task",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for LED2_tack */
-osThreadId_t LED2_tackHandle;
-const osThreadAttr_t LED2_tack_attributes = {
-  .name = "LED2_tack",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for myTask04 */
 osThreadId_t myTask04Handle;
@@ -112,8 +99,6 @@ static void MX_DMA_Init(void);
 static void MX_RNG_Init(void);
 static void MX_SPI5_Init(void);
 void StartLCDTask(void *argument);
-void StartTaskLED1(void *argument);
-void StartTaskLED2(void *argument);
 void StartTask04(void *argument);
 void StartTask05(void *argument);
 
@@ -216,12 +201,6 @@ int main(void)
   /* Create the thread(s) */
   /* creation of LCD_Task */
   LCD_TaskHandle = osThreadNew(StartLCDTask, NULL, &LCD_Task_attributes);
-
-  /* creation of LED1_task */
-  LED1_taskHandle = osThreadNew(StartTaskLED1, NULL, &LED1_task_attributes);
-
-  /* creation of LED2_tack */
-  LED2_tackHandle = osThreadNew(StartTaskLED2, NULL, &LED2_tack_attributes);
 
   /* creation of myTask04 */
   myTask04Handle = osThreadNew(StartTask04, NULL, &myTask04_attributes);
@@ -505,7 +484,7 @@ void StartLCDTask(void *argument)
   /* USER CODE BEGIN 5 */
 	  TFTDisplay_ILI9341_Initialization(240, 320);
     TFTDisplay_ILI9341_SetRotation(2);
-
+    led_inited = true;
 
 	  for (int i=0; i < dl_n; i++){
 		  TFTDisplay_ILI9341_DrawChar (nx, ny, *ptr);
@@ -529,60 +508,16 @@ void StartLCDTask(void *argument)
 		for(int i=0; i< 10; i++)
 		  {
 			  TFTDisplay_ILI9341_DrawChar(100, 100, 0x30 + i);
-			  osDelay(1000);
+			  TFTDisplay_ILI9341_DrawChar(100, 120, 0x31); //według fizyki czarnej dziury tu to działa
+//			  int real_temp = (int)output;
+//			  int exp_temp = (int)expected;
+//			  bool window = false;
+//			  Draw_info((int)in4.output * 10, (int)pid.expected * 10, true);
+			  osDelay(500);
 		  }
 
 	}
   /* USER CODE END 5 */
-}
-
-/* USER CODE BEGIN Header_StartTaskLED1 */
-/**
-* @brief Function implementing the LED1_task thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartTaskLED1 */
-void StartTaskLED1(void *argument)
-{
-  /* USER CODE BEGIN StartTaskLED1 */
-  /* Infinite loop */
-  for(;;)
-  {
-
-	  osSemaphoreAcquire(BinarySem01Handle, osWaitForever);  //synchronizacja tasków - zwolnienie w TaskLED2
-
-	  LL_GPIO_TogglePin(GPIOG, LL_GPIO_PIN_13);
-
-
-	  osDelay(100);
-  }
-  /* USER CODE END StartTaskLED1 */
-}
-
-/* USER CODE BEGIN Header_StartTaskLED2 */
-/**
-* @brief Function implementing the LED2_tack thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartTaskLED2 */
-void StartTaskLED2(void *argument)
-{
-  /* USER CODE BEGIN StartTaskLED2 */
-  /* Infinite loop */
-  for(;;)
-  {
-
-
-	  LL_GPIO_TogglePin(GPIOG, LL_GPIO_PIN_14);
-
-	  osDelay(1000);
-	  osSemaphoreRelease(BinarySem01Handle);	//zwolnienie semafora i odblokowanie TaskLED1
-
-	  ;
-  }
-  /* USER CODE END StartTaskLED2 */
 }
 
 /* USER CODE BEGIN Header_StartTask04 */
@@ -595,21 +530,32 @@ void StartTaskLED2(void *argument)
 void StartTask04(void *argument)
 {
   /* USER CODE BEGIN StartTask04 */
+
   /* Infinite loop */
   for(;;)
   {
 	    if(!(GPIOC -> IDR & 0x0800)){
 	        pid.expected += 0.1;
 	        TFTDisplay_ILI9341_DrawChar(100, 150, 0x31);
+	        osDelay(190);
 	    }
 	    if(!(GPIOC -> IDR & 0x1000)){
 	        pid.expected -= 0.1;
 	        TFTDisplay_ILI9341_DrawChar(100, 150, 0x32);
+	        osDelay(190);
 	    }
 	    if(!(GPIOC -> IDR & 0x2000)){
 	    	TFTDisplay_ILI9341_DrawChar(100, 150, 0x30);
+//	    	TFTDisplay_ILI9341_DrawChar(100, 120, 0x31); //według fizyki czarnej dziury tu to działa
 	    }
+//	    if (lcdprop.pFont != NULL && lcdprop.pFont->table != NULL) { //chat idea
+//	        TFTDisplay_ILI9341_DrawChar(100, 120, 0x31);
+//	    }
+//		TFTDisplay_ILI9341_DrawChar(100, 120, 0x31); //według fizyki czarnej dziury tu to nie działa
 	    osDelay(10);
+
+
+
   }
   /* USER CODE END StartTask04 */
 }
@@ -627,44 +573,21 @@ void StartTask05(void *argument)
     PID_s_init(&pid, 10, 3, 0.9, tp);
     Inercja_s_init(&in3, 1, tp, 5);
     Inercja_s_init(&in4, 2, tp, 3);
-    float expected = 0;
-    float output = 0;
+    pid.expected = 18;
+    in4.output = 17;
   /* Infinite loop */
   for(;;)
   {
-	    pid.expected = expected;
-	    pid.input = output;
+	    pid.input = in4.output;
 	    Reg_s_step(&pid);
 	    //output = pid.output;
 	    in3.input = pid.output;
 	    Inercja_s_step(&in3);
 	    in4.input = in3.output;
 	    Inercja_s_step(&in4);
-	    output =  in4.output;
-//	    Draw_info((int)output, (int) expected, false);
-	    Draw_info(104, 152, false);
-	    int real_temp = (int)output;
-	    int exp_temp = (int)expected;
-	    bool window = false;
-			unsigned char data[]= "Temp:  .  Set:  .  Okno:  ";
-			if(real_temp > 500) real_temp = 500;
-			data[5] = real_temp / 100 + '0';
-			data[6] = ((real_temp / 10) - (real_temp / 100 * 10)) + '0';
-			data[8] = real_temp % 10 + '0';
-			data[14] = exp_temp / 100 + '0';
-			data[15] = ((exp_temp / 10) - (exp_temp / 100 * 10)) + '0';
-			data[17] = exp_temp % 10 + '0';
-			if(window){
-				data[24] = '1';
-			}else{
-				data[24] = '0';
-			}
-			data[25] = '\0';  // jeśli wpisujesz znak w data[24]
-//			TFTDisplay_ILI9341_DrawChar(200, 150, 0x38); //według fizyki czarnej dziury tu to nie działa
-		//    TFTDisplay_ILI9341_DrawChar(16, 10, data[6]);
-//		    for(int i = 0; i < 25; i++){
-//		    	TFTDisplay_ILI9341_DrawChar(5 + i * 6, 5, data[i]); //nie działa
-//		    }
+	    Draw_info((int)(in3.output * 10), (int)(pid.expected * 10), false);
+//	    Draw_info(104, 152, false);
+
 	    osDelay(50);
   }
   /* USER CODE END StartTask05 */

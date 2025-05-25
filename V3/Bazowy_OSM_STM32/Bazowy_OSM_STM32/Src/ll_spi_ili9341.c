@@ -4,9 +4,11 @@
 #include "font16.c"
 #include "font12.c"
 #include "font8.c"
+#include <stdbool.h>
 //-------------------------------------------------------------------
 uint16_t TFTDisplay_ILI9341_WIDTH = 0x00;
 uint16_t TFTDisplay_ILI9341_HEIGHT = 0x00;
+bool led_inited = false;
 //-------------------------------------------------------------------
 extern uint32_t DmaSpiCnt;
 uint8_t DataBuffer[65536] = {0};
@@ -262,52 +264,54 @@ void TFTDisplay_ILI9341_SetFont(sFONT *pFonts)
 //-------------------------------------------------------------------
 void TFTDisplay_ILI9341_DrawChar(uint16_t x, uint16_t y, uint8_t c)
 {
-  uint32_t i = 0, j = 0;
-  uint16_t height, width;
-  uint16_t y_cur = y;
-  uint8_t offset;
-  uint8_t *c_t;
-  uint8_t *pchar;
-  uint32_t line=0;
-  height = lcdprop.pFont->Height;
-  width  = lcdprop.pFont->Width;
-  offset = 8 *((width + 7)/8) -  width ;
-  c_t = (uint8_t*) &(lcdprop.pFont->table[(c-' ') * lcdprop.pFont->Height * ((lcdprop.pFont->Width + 7) / 8)]);
-  for(i = 0; i < height; i++)
-  {
-    pchar = ((uint8_t *)c_t + (width + 7)/8 * i);
-    switch(((width + 7)/8))
-    {
-      case 1:
-          line =  pchar[0];      
-          break;
-      case 2:
-          line =  (pchar[0]<< 8) | pchar[1];
-          break;
-      case 3:
-      default:
-        line =  (pchar[0]<< 16) | (pchar[1]<< 8) | pchar[2];      
-        break;
-    }
-    for (j = 0; j < width; j++)
-    {
-      if(line & (1 << (width- j + offset- 1))) 
-      {
-    	DataBuffer[(i*width + j) * 2] = lcdprop.TextColor >> 8;
-    	DataBuffer[(i*width + j)*2+1] = lcdprop.TextColor & 0xFF;
-      }
-      else
-      {
-    	DataBuffer[(i*width + j)*2] = lcdprop.BackColor >> 8;
-        DataBuffer[(i*width + j)*2+1] = lcdprop.BackColor & 0xFF;
-      } 
-    }
-    y_cur++;
-  }
+	if(led_inited){
+		uint32_t i = 0, j = 0;
+		uint16_t height, width;
+		uint16_t y_cur = y;
+		uint8_t offset;
+		uint8_t *c_t;
+		uint8_t *pchar;
+		uint32_t line=0;
+		height = lcdprop.pFont->Height;
+		width  = lcdprop.pFont->Width;
+		offset = 8 *((width + 7)/8) -  width ;
+		c_t = (uint8_t*) &(lcdprop.pFont->table[(c-' ') * lcdprop.pFont->Height * ((lcdprop.pFont->Width + 7) / 8)]);
+		for(i = 0; i < height; i++)
+		{
+		pchar = ((uint8_t *)c_t + (width + 7)/8 * i);
+		switch(((width + 7)/8))
+		{
+		  case 1:
+			  line =  pchar[0];
+			  break;
+		  case 2:
+			  line =  (pchar[0]<< 8) | pchar[1];
+			  break;
+		  case 3:
+		  default:
+			line =  (pchar[0]<< 16) | (pchar[1]<< 8) | pchar[2];
+			break;
+		}
+		for (j = 0; j < width; j++)
+		{
+		  if(line & (1 << (width- j + offset- 1)))
+		  {
+			DataBuffer[(i*width + j) * 2] = lcdprop.TextColor >> 8;
+			DataBuffer[(i*width + j)*2+1] = lcdprop.TextColor & 0xFF;
+		  }
+		  else
+		  {
+			DataBuffer[(i*width + j)*2] = lcdprop.BackColor >> 8;
+			DataBuffer[(i*width + j)*2+1] = lcdprop.BackColor & 0xFF;
+		  }
+		}
+		y_cur++;
+		}
 
-  DmaSpiCnt = 1;
-  tftDisplay_ILI9341_SetAddrWindow(x, y, x+width-1, y+height-1);
-  tftDisplay_ILI9341_WriteMultipleData((uint32_t*)&DataBuffer[0], width * height * 2, DmaSpiCnt);
+		DmaSpiCnt = 1;
+		tftDisplay_ILI9341_SetAddrWindow(x, y, x+width-1, y+height-1);
+		tftDisplay_ILI9341_WriteMultipleData((uint32_t*)&DataBuffer[0], width * height * 2, DmaSpiCnt);
+	}
 }
 //-------------------------------------------------------------------
 void TFTDisplay_ILI9341_String(uint16_t x, uint16_t y, char *str)
