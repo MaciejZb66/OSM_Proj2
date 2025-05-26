@@ -138,69 +138,75 @@ void TFTDisplay_ILI9341_FillScreen(uint16_t color)
 //-------------------------------------------------------------------
 void TFTDisplay_ILI9341_DrawPixel(int x, int y, uint16_t color)
 {
-	if((x<0)||(y<0)||(x>=TFTDisplay_ILI9341_WIDTH)||(y>=TFTDisplay_ILI9341_HEIGHT))
-	{
-		return;
+	if(led_inited){
+		if((x<0)||(y<0)||(x>=TFTDisplay_ILI9341_WIDTH)||(y>=TFTDisplay_ILI9341_HEIGHT))
+		{
+			return;
+		}
+
+		tftDisplay_ILI9341_SetAddrWindow(x,y,x,y);
+		tftDisplay_ILI9341_SendCommand(TFT_ILI9341_GRAM);
+		DataBuffer[0] = color>>8;
+		DataBuffer[1] = color & 0xFF;
+
+
+		tftDisplay_ILI9341_WriteMultipleData((uint32_t*)&DataBuffer[0], 2, 1);
 	}
-
-	tftDisplay_ILI9341_SetAddrWindow(x,y,x,y);
-	tftDisplay_ILI9341_SendCommand(TFT_ILI9341_GRAM);
-	DataBuffer[0] = color>>8;
-	DataBuffer[1] = color & 0xFF;
-
-
-	tftDisplay_ILI9341_WriteMultipleData((uint32_t*)&DataBuffer[0], 2, 1);
+	
 }
 //------------------------------------------------------------------
 void TFTDisplay_ILI9341_DrawLine(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end, uint16_t color)
 {
-    int steep = abs(y_end-y_start)>abs(x_end-x_start);
-    int dx=0;
-    int dy=0;
-    int err=0;
-    int ystep=0;
+	if(led_inited){
+		int steep = abs(y_end-y_start)>abs(x_end-x_start);
+		int dx=0;
+		int dy=0;
+		int err=0;
+		int ystep=0;
 
-    if (steep)
-    {
-    	SWAP(x_start,y_start);
-    	SWAP(x_end,y_end);
-    }
+		if (steep)
+		{
+			SWAP(x_start,y_start);
+			SWAP(x_end,y_end);
+		}
 
-    if(x_start>x_end)
-    {
-    	SWAP(x_start,x_end);
-    	SWAP(y_start,y_end);
-    }
+		if(x_start>x_end)
+		{
+			SWAP(x_start,x_end);
+			SWAP(y_start,y_end);
+		}
 
-    dx=x_end-x_start;
-    dy=abs(y_end-y_start);
-    err=dx/2;
+		dx=x_end-x_start;
+		dy=abs(y_end-y_start);
+		err=dx/2;
 
-    if(y_start<y_end)
-    {
-        ystep = 1;
-    }
-    else
-    {
-        ystep = -1;
-    }
-    for (;x_start<=x_end;x_start++)
-    {
-       if (steep)
-       {
-    	   TFTDisplay_ILI9341_DrawPixel(y_start,x_start,color);
-       }
-       else
-       {
-    	   TFTDisplay_ILI9341_DrawPixel(x_start,y_start,color);
-       }
-       err-=dy;
-       if (err<0)
-       {
-        y_start += ystep;
-        err+=dx;
-       }
-    }
+		if(y_start<y_end)
+		{
+			ystep = 1;
+		}
+		else
+		{
+			ystep = -1;
+		}
+		for (;x_start<=x_end;x_start++)
+		{
+		if (steep)
+		{
+			TFTDisplay_ILI9341_DrawPixel(y_start,x_start,color);
+		}
+		else
+		{
+			TFTDisplay_ILI9341_DrawPixel(x_start,y_start,color);
+		}
+		err-=dy;
+		if (err<0)
+		{
+			y_start += ystep;
+			err+=dx;
+		}
+		}
+	}
+    
 }
 //-------------------------------------------------------------------
 void TFTDisplay_ILI9341_DrawClearRect(uint16_t start_x, uint16_t start_y,
@@ -326,34 +332,36 @@ void TFTDisplay_ILI9341_String(uint16_t x, uint16_t y, char *str)
 //-------------------------------------------------------------------
 void TFTDisplay_ILI9341_SetRotation(uint8_t RotationSelectVal)
 {
-  tftDisplay_ILI9341_SendCommand(0x36);
-  switch(RotationSelectVal)
-  {
-    case 0:
-      DataBuffer[0] = ORIENTATION_PORTRAIT;
-      tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-      TFTDisplay_ILI9341_WIDTH = 240;
-      TFTDisplay_ILI9341_HEIGHT = 320;
-      break;
-    case 1:
-      DataBuffer[0] = ORIENTATION_LANDSCAPE;
-      tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-      TFTDisplay_ILI9341_WIDTH = 320;
-      TFTDisplay_ILI9341_HEIGHT = 240;
-      break;
-    case 2:
-      DataBuffer[0] = ORIENTATION_PORTRAIT_MIRROR;
-      tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-      TFTDisplay_ILI9341_WIDTH = 240;
-      TFTDisplay_ILI9341_HEIGHT = 320;
-      break;
-    case 3:
-      DataBuffer[0] = ORIENTATION_LANDSCAPE_MIRROR;
-      tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-      TFTDisplay_ILI9341_WIDTH = 320;
-      TFTDisplay_ILI9341_HEIGHT = 240;
-      break;
-  }
+	if(led_inited){
+		tftDisplay_ILI9341_SendCommand(0x36);
+		switch(RotationSelectVal)
+		{
+		case 0:
+			DataBuffer[0] = ORIENTATION_PORTRAIT;
+			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+			TFTDisplay_ILI9341_WIDTH = 240;
+			TFTDisplay_ILI9341_HEIGHT = 320;
+			break;
+		case 1:
+			DataBuffer[0] = ORIENTATION_LANDSCAPE;
+			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+			TFTDisplay_ILI9341_WIDTH = 320;
+			TFTDisplay_ILI9341_HEIGHT = 240;
+			break;
+		case 2:
+			DataBuffer[0] = ORIENTATION_PORTRAIT_MIRROR;
+			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+			TFTDisplay_ILI9341_WIDTH = 240;
+			TFTDisplay_ILI9341_HEIGHT = 320;
+			break;
+		case 3:
+			DataBuffer[0] = ORIENTATION_LANDSCAPE_MIRROR;
+			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+			TFTDisplay_ILI9341_WIDTH = 320;
+			TFTDisplay_ILI9341_HEIGHT = 240;
+			break;
+		}
+	}  
 }
 //-------------------------------------------------------------------
 //-------------------------------------------------------------------
