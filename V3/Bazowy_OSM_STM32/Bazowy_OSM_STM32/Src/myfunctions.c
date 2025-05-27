@@ -28,6 +28,14 @@ void SetPixel(int x, int y, uint16_t color){
     LCD_BUF[y*LCD_WIDTH+x]= color;
 }
 
+void Draw_image(const uint16_t* img){
+    for(int y = 80; y < 320; y++){
+        for(int x = 0; x < 240; x++){
+            TFTDisplay_ILI9341_DrawPixel(x, y, img[240 * (y -80) + x]);
+        }
+    }
+}
+
 void wykres_init(wykres_s* wykres, char* name, int* source, int off){
     for(int i = 0; i < wykres_char; i++){
         wykres->os_y_name[i] = name[i];

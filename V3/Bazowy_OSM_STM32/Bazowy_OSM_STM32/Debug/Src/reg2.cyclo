@@ -1,0 +1,4 @@
+../Src/reg2.c:3:6:PID_s_init	1
+../Src/reg2.c:12:6:Reg_s_step	1
+../Src/reg2.c:23:6:Inercja_s_init	1
+../Src/reg2.c:30:6:Inercja_s_step	1

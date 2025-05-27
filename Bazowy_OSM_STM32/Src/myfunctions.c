@@ -24,7 +24,15 @@ void Draw_info(int real_temp, int exp_temp, bool window){
 }
 
 void SetPixel(int x, int y, uint16_t color){	
-    LCD_BUF[y*LCD_WIDTH+x]= color;
+    // LCD_BUF[y*LCD_WIDTH+x]= color;
+    TFTDisplay_ILI9341_DrawPixel(x, y, color)
+}
+void Draw_image(uint16_t* img){
+    for(int y = 80; y < 320; y++){
+        for(int x = 0; x < 240; x++){
+            TFTDisplay_ILI9341_DrawPixel(x, y, img[240 * (y -80) + x]);
+        }
+    }
 }
 
 void wykres_init(wykres_s* wykres, char* name, int* source, int off){
