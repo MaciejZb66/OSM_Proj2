@@ -7,7 +7,6 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="/home/maciej/Dokumenty/sem6/OSM/OSM_Proj2/V3/Bazowy_OSM_STM32"/>
 			<item value="C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">

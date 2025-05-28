@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
 ################################################################################
 
 -include ../makefile.init
@@ -64,8 +64,8 @@ all: main-build
 main-build: Bazowy_STM32_LCD_SPI_ILI9341.elf secondary-outputs
 
 # Tool invocations
-Bazowy_STM32_LCD_SPI_ILI9341.elf Bazowy_STM32_LCD_SPI_ILI9341.map: $(OBJS) $(USER_OBJS) /home/maciej/Dokumenty/sem6/OSM/OSM_Proj2/V3/Bazowy_OSM_STM32/Bazowy_OSM_STM32/STM32F429ZITX_RAM.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/maciej/Dokumenty/sem6/OSM/OSM_Proj2/V3/Bazowy_OSM_STM32/Bazowy_OSM_STM32/STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Bazowy_STM32_LCD_SPI_ILI9341.elf Bazowy_STM32_LCD_SPI_ILI9341.map: $(OBJS) $(USER_OBJS) C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

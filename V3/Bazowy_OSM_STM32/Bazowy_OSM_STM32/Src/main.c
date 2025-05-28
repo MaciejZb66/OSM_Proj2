@@ -44,7 +44,7 @@ PID_s pid;
 Inercja_s in3;
 Inercja_s in4;
 float tp = 0.1;
-extern const uint16_t jajko[57600];
+//extern const uint16_t jajko[57600];
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -53,7 +53,7 @@ extern const uint16_t jajko[57600];
 osThreadId_t LCD_TaskHandle;
 const osThreadAttr_t LCD_Task_attributes = {
   .name = "LCD_Task",
-  .stack_size = 128 * 4,
+  .stack_size = 2560 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for myTask04 */
