@@ -1,19 +1,17 @@
-11:44:38 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
+09:55:40 **** Incremental Build of configuration Debug for project Bazowy_STM32_LCD_SPI_ILI9341 ****
 make -j6 all 
-arm-none-eabi-gcc "../Src/bitmaps.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/bitmaps.d" -MT"Src/bitmaps.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/bitmaps.o"
-arm-none-eabi-gcc "../Src/freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/freertos.d" -MT"Src/freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/freertos.o"
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DVECT_TAB_SRAM -DDEBUG -DSTM32F429xx -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Inc -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/stm32f4xx_it.d" -MT"Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/stm32f4xx_it.o"
-../Src/stm32f4xx_it.c: In function 'DMA2_Stream4_IRQHandler':
-../Src/stm32f4xx_it.c:195:5: warning: implicit declaration of function 'DMA1_Stream4_TransferComplete' [-Wimplicit-function-declaration]
-  195 |     DMA1_Stream4_TransferComplete();
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "Bazowy_STM32_LCD_SPI_ILI9341.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Student\Desktop\245626,245585\OSM_Proj2\V3\Bazowy_OSM_STM32\Bazowy_OSM_STM32\STM32F429ZITX_RAM.ld" --specs=nosys.specs -Wl,-Map="Bazowy_STM32_LCD_SPI_ILI9341.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-c:\st\stm32cubeide_1.9.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: Bazowy_STM32_LCD_SPI_ILI9341.elf section `.bss' will not fit in region `RAM'
-c:\st\stm32cubeide_1.9.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: region `RAM' overflowed by 44952 bytes
-collect2.exe: error: ld returned 1 exit status
-make: *** [makefile:68: Bazowy_STM32_LCD_SPI_ILI9341.elf] Error 1
-"make -j6 all" terminated with exit code 2. Build might be incomplete.
+Finished building target: Bazowy_STM32_LCD_SPI_ILI9341.elf
+ 
+arm-none-eabi-size   Bazowy_STM32_LCD_SPI_ILI9341.elf 
+arm-none-eabi-objdump -h -S  Bazowy_STM32_LCD_SPI_ILI9341.elf  > "Bazowy_STM32_LCD_SPI_ILI9341.list"
+   text	   data	    bss	    dec	    hex	filename
+  39848	    200	  86196	 126244	  1ed24	Bazowy_STM32_LCD_SPI_ILI9341.elf
+Finished building: default.size.stdout
+ 
+Finished building: Bazowy_STM32_LCD_SPI_ILI9341.list
+ 
 
-11:44:39 Build Failed. 3 errors, 1 warnings. (took 838ms)
+09:55:41 Build Finished. 0 errors, 0 warnings. (took 794ms)
 
