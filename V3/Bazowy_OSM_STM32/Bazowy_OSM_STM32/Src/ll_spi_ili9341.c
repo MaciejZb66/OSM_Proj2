@@ -332,36 +332,34 @@ void TFTDisplay_ILI9341_String(uint16_t x, uint16_t y, char *str)
 //-------------------------------------------------------------------
 void TFTDisplay_ILI9341_SetRotation(uint8_t RotationSelectVal)
 {
-	if(led_inited){
-		tftDisplay_ILI9341_SendCommand(0x36);
-		switch(RotationSelectVal)
-		{
-		case 0:
-			DataBuffer[0] = ORIENTATION_PORTRAIT;
-			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-			TFTDisplay_ILI9341_WIDTH = 240;
-			TFTDisplay_ILI9341_HEIGHT = 320;
-			break;
-		case 1:
-			DataBuffer[0] = ORIENTATION_LANDSCAPE;
-			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-			TFTDisplay_ILI9341_WIDTH = 320;
-			TFTDisplay_ILI9341_HEIGHT = 240;
-			break;
-		case 2:
-			DataBuffer[0] = ORIENTATION_PORTRAIT_MIRROR;
-			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-			TFTDisplay_ILI9341_WIDTH = 240;
-			TFTDisplay_ILI9341_HEIGHT = 320;
-			break;
-		case 3:
-			DataBuffer[0] = ORIENTATION_LANDSCAPE_MIRROR;
-			tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
-			TFTDisplay_ILI9341_WIDTH = 320;
-			TFTDisplay_ILI9341_HEIGHT = 240;
-			break;
-		}
-	}  
+	tftDisplay_ILI9341_SendCommand(0x36);
+	switch(RotationSelectVal)
+	{
+	case 0:
+		DataBuffer[0] = ORIENTATION_PORTRAIT;
+		tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+		TFTDisplay_ILI9341_WIDTH = 240;
+		TFTDisplay_ILI9341_HEIGHT = 320;
+		break;
+	case 1:
+		DataBuffer[0] = ORIENTATION_LANDSCAPE;
+		tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+		TFTDisplay_ILI9341_WIDTH = 320;
+		TFTDisplay_ILI9341_HEIGHT = 240;
+		break;
+	case 2:
+		DataBuffer[0] = ORIENTATION_PORTRAIT_MIRROR;
+		tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+		TFTDisplay_ILI9341_WIDTH = 240;
+		TFTDisplay_ILI9341_HEIGHT = 320;
+		break;
+	case 3:
+		DataBuffer[0] = ORIENTATION_LANDSCAPE_MIRROR;
+		tftDisplay_ILI9341_SendSingleData((uint32_t*)&DataBuffer[0]);
+		TFTDisplay_ILI9341_WIDTH = 320;
+		TFTDisplay_ILI9341_HEIGHT = 240;
+		break;
+	}
 }
 //-------------------------------------------------------------------
 //-------------------------------------------------------------------

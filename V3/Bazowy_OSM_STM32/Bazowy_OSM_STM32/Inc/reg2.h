@@ -4,6 +4,7 @@ typedef struct
 {
     float Kp, Ti, Td, Ts, last_i, last_input;
     float input, expected, output;
+    int expected_i, output_i;
 }PID_s;
 
 typedef struct{

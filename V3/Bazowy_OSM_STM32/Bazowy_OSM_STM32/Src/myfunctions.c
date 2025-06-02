@@ -25,11 +25,28 @@ void Draw_info(int real_temp, int exp_temp, bool window){
 }
 
 void SetPixel(int x, int y, uint16_t color){	
-    LCD_BUF[y*LCD_WIDTH+x]= color;
+	TFTDisplay_ILI9341_DrawPixel(x, y, color);
 }
 
 void Draw_image(const uint16_t* img){
     for(int y = 80; y < 320; y++){
+        for(int x = 0; x < 240; x++){
+            TFTDisplay_ILI9341_DrawPixel(x, y, img[240 * (y -80) + x]);
+        }
+    }
+}
+
+void Draw_image2(const uint16_t* img){
+    for(int y = 80; y < 160; y++){
+        for(int x = 0; x < 80; x++){
+            TFTDisplay_ILI9341_DrawPixel(x, y, img[80 * (y -80) + x]);
+        }
+    }
+}
+
+void Draw_image3(const uint16_t* img, int offset){
+	int start = 48 * offset + 80;
+    for(int y = start; y < start + 48; y++){
         for(int x = 0; x < 240; x++){
             TFTDisplay_ILI9341_DrawPixel(x, y, img[240 * (y -80) + x]);
         }
@@ -65,13 +82,14 @@ void wykres_draw(wykres_s* wykres){
 }
 
 void wykres_show(wykres_s* wykres){
+	TFTDisplay_ILI9341_FillRect(0, 21, 240, 70, 0x0000);
     //data
     for(int i = 0; i< 220; i++){
         // TFTDisplay_ILI9341_DrawPixel(140, 140, TFT_COLOR_ILI9341_WHITE);
         SetPixel(i+19, ((500-wykres->last_temps[i] - (10 * wykres->offset))/5)+20, 0x8000);
-        SetPixel(i+19, 120, 0x8410);
+        SetPixel(i+19, 120, 0xF410);
         if (i < 100){
-            SetPixel(19, i+20, 0x8410);
+            SetPixel(19, i+20, 0xF410);
         }
     }
     //improve after test

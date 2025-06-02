@@ -43,6 +43,7 @@ extern bool led_inited;
 PID_s pid;
 Inercja_s in3;
 Inercja_s in4;
+wykres_s entry;
 float tp = 0.1;
 //extern const uint16_t jajko[57600];
 /* USER CODE END PM */
@@ -53,7 +54,7 @@ float tp = 0.1;
 osThreadId_t LCD_TaskHandle;
 const osThreadAttr_t LCD_Task_attributes = {
   .name = "LCD_Task",
-  .stack_size = 2560 * 4,
+  .stack_size = 1664 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for myTask04 */
@@ -69,6 +70,13 @@ const osThreadAttr_t myTask05_attributes = {
   .name = "myTask05",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityBelowNormal1,
+};
+/* Definitions for LCD_Task_cd */
+osThreadId_t LCD_Task_cdHandle;
+const osThreadAttr_t LCD_Task_cd_attributes = {
+  .name = "LCD_Task_cd",
+  .stack_size = 1664 * 4,
+  .priority = (osPriority_t) osPriorityLow1,
 };
 /* Definitions for BinarySem01 */
 osSemaphoreId_t BinarySem01Handle;
@@ -101,6 +109,7 @@ static void MX_SPI5_Init(void);
 void StartLCDTask(void *argument);
 void StartTask04(void *argument);
 void StartTask05(void *argument);
+void StartLCDTask_cd(void *argument);
 
 /* USER CODE BEGIN PFP */
 void move_square_C(void);
@@ -119,6 +128,24 @@ void move_square_C(){
 		if (y <= 1 || y >= 320 - 34)
 			dy = -dy;
 }
+//#define jajko_adres 0x0800F000
+//void Flash_Write(void)
+//{
+//    // 1. Odblokowanie Flash
+//    LL_FLASH_Unlock();
+//
+//    // 2. Kasowanie sektora (np. sektor 11 dla STM32F407 z 512KB Flash)
+//    while (LL_FLASH_IsActiveFlag_BSY());
+//    LL_FLASH_Erase_Sector(LL_FLASH_SECTOR_11, LL_FLASH_CURRENTPAGE);
+//    while (LL_FLASH_IsActiveFlag_BSY());
+//
+//    // 3. Zapis słowa (32-bit)
+//    LL_FLASH_Program(LL_FLASH_PROGRAM_WORD, s, DATA_32);
+//    while (LL_FLASH_IsActiveFlag_BSY());
+//
+//    // 4. Zablokowanie Flash
+//    LL_FLASH_Lock();
+//}
 
 /* USER CODE END 0 */
 
@@ -207,6 +234,9 @@ int main(void)
 
   /* creation of myTask05 */
   myTask05Handle = osThreadNew(StartTask05, NULL, &myTask05_attributes);
+
+  /* creation of LCD_Task_cd */
+  LCD_Task_cdHandle = osThreadNew(StartLCDTask_cd, NULL, &LCD_Task_cd_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -482,12 +512,12 @@ void DMA1_Stream4_TransferComplete(void)
 void StartLCDTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	  TFTDisplay_ILI9341_Initialization(240, 320);
+	TFTDisplay_ILI9341_Initialization(240, 320);
     TFTDisplay_ILI9341_SetRotation(2);
     led_inited = true;
 
 	  for (int i=0; i < dl_n; i++){
-		  TFTDisplay_ILI9341_DrawChar (nx, ny, *ptr);
+		  TFTDisplay_ILI9341_DrawChar(nx, ny, *ptr);
 		  nx= nx +10;
 		  ptr++;
 
@@ -498,23 +528,39 @@ void StartLCDTask(void *argument)
 
 
 	while(!(GPIOA -> IDR & 0x0001)) //sprawdzanie klawisza pod PA0
-		{
+	{
 		osDelay(2);					//aby nie blokować innych tasków
-		}
+	}
 
 	/* Infinite loop */
 	for(;;)
 	{
 		for(int i=0; i< 10; i++)
 		  {
-			  Draw_image(jajko);
+			if(i < 3){
+				Draw_image3(jajko1, 0);
+				osDelay(100);
+			}else if(i<6){
+				Draw_image3(jajko2, 1);
+				osDelay(100);
+			}else{
+//				Draw_image3(jajko3, 2);
+				osDelay(100);
+			}
+//			  Draw_image2(test);
+
+
+//			  Draw_image3(jajko3, 2);
+//			  Draw_image3(jajko4, 3);
+//			  Draw_image3(jajko5, 4);
+
 			  // TFTDisplay_ILI9341_DrawChar(100, 100, 0x30 + i);
-			  // TFTDisplay_ILI9341_DrawChar(100, 120, 0x31); //według fizyki czarnej dziury tu to działa
+//			   TFTDisplay_ILI9341_DrawChar(100, 120, 0x31); //według fizyki czarnej dziury tu to działa
 //			  int real_temp = (int)output;
 //			  int exp_temp = (int)expected;
 //			  bool window = false;
 //			  Draw_info((int)in4.output * 10, (int)pid.expected * 10, true);
-			  osDelay(500);
+//			  osDelay(100);
 		  }
 
 	}
@@ -537,13 +583,15 @@ void StartTask04(void *argument)
   {
 	    if(!(GPIOC -> IDR & 0x0800)){
 	        pid.expected += 0.1;
+	        pid.expected_i = (int)(10 * pid.expected);
 	        TFTDisplay_ILI9341_DrawChar(100, 150, 0x31);
-	        osDelay(190);
+	        osDelay(40);
 	    }
 	    if(!(GPIOC -> IDR & 0x1000)){
 	        pid.expected -= 0.1;
+	        pid.expected_i = (int)(10 * pid.expected);
 	        TFTDisplay_ILI9341_DrawChar(100, 150, 0x32);
-	        osDelay(190);
+	        osDelay(40);
 	    }
 	    if(!(GPIOC -> IDR & 0x2000)){
 	    	TFTDisplay_ILI9341_DrawChar(100, 150, 0x30);
@@ -576,9 +624,11 @@ void StartTask05(void *argument)
     Inercja_s_init(&in4, 2, tp, 3);
     pid.expected = 18;
     in4.output = 17;
+    osDelay(100);
   /* Infinite loop */
   for(;;)
   {
+
 	    pid.input = in4.output;
 	    Reg_s_step(&pid);
 	    //output = pid.output;
@@ -586,12 +636,33 @@ void StartTask05(void *argument)
 	    Inercja_s_step(&in3);
 	    in4.input = in3.output;
 	    Inercja_s_step(&in4);
-	    Draw_info((int)(in3.output * 10), (int)(pid.expected * 10), false);
+	    Draw_info((int)(pid.input * 10), (int)(pid.expected * 10), false);
+	    wykres_draw(&entry);
 //	    Draw_info(104, 152, false);
 
 	    osDelay(50);
   }
   /* USER CODE END StartTask05 */
+}
+
+/* USER CODE BEGIN Header_StartLCDTask_cd */
+/**
+* @brief Function implementing the LCD_Task_cd thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartLCDTask_cd */
+void StartLCDTask_cd(void *argument)
+{
+  /* USER CODE BEGIN StartLCDTask_cd */
+	wykres_init(&entry, "in", &pid.expected_i, 0);
+  /* Infinite loop */
+  for(;;)
+  {
+	wykres_show(&entry);
+    osDelay(10);
+  }
+  /* USER CODE END StartLCDTask_cd */
 }
 
 /**
