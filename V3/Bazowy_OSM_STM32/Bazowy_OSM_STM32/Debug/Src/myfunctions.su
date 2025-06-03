@@ -4,5 +4,5 @@
 ../Src/myfunctions.c:39:6:Draw_image2	24	static
 ../Src/myfunctions.c:47:6:Draw_image3	32	static
 ../Src/myfunctions.c:56:6:wykres_init	32	static
-../Src/myfunctions.c:72:6:wykres_draw	24	static
-../Src/myfunctions.c:84:6:wykres_show	32	static
+../Src/myfunctions.c:73:6:wykres_draw	24	static
+../Src/myfunctions.c:85:6:wykres_show	24	static

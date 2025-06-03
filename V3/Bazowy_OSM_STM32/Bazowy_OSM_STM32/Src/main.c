@@ -44,7 +44,10 @@ PID_s pid;
 Inercja_s in3;
 Inercja_s in4;
 wykres_s entry;
+wykres_s out;
 float tp = 0.1;
+int err = 0;
+wykres_s errdr;
 //extern const uint16_t jajko[57600];
 /* USER CODE END PM */
 
@@ -516,13 +519,6 @@ void StartLCDTask(void *argument)
     TFTDisplay_ILI9341_SetRotation(2);
     led_inited = true;
 
-	  for (int i=0; i < dl_n; i++){
-		  TFTDisplay_ILI9341_DrawChar(nx, ny, *ptr);
-		  nx= nx +10;
-		  ptr++;
-
-	  }
-
 
 	  TFTDisplay_ILI9341_DrawLine(0, 20, 240, 20, TFT_COLOR_ILI9341_RED);
 
@@ -535,18 +531,18 @@ void StartLCDTask(void *argument)
 	/* Infinite loop */
 	for(;;)
 	{
-		for(int i=0; i< 10; i++)
-		  {
-			if(i < 3){
-				Draw_image3(jajko1, 0);
-				osDelay(100);
-			}else if(i<6){
-				Draw_image3(jajko2, 1);
-				osDelay(100);
-			}else{
-//				Draw_image3(jajko3, 2);
-				osDelay(100);
-			}
+//		for(int i=0; i< 10; i++)
+//		  {
+//			if(i < 3){
+//				Draw_image3(jajko1, 0);
+//				osDelay(100);
+//			}else if(i<6){
+//				Draw_image3(jajko2, 1);
+//				osDelay(100);
+//			}else{
+////				Draw_image3(jajko3, 2);
+//				osDelay(100);
+//			}
 //			  Draw_image2(test);
 
 
@@ -560,8 +556,11 @@ void StartLCDTask(void *argument)
 //			  int exp_temp = (int)expected;
 //			  bool window = false;
 //			  Draw_info((int)in4.output * 10, (int)pid.expected * 10, true);
-//			  osDelay(100);
-		  }
+//		TFTDisplay_ILI9341_FillRect(2, 71, 230, 140, 0x001F);
+//		osDelay(100);
+//		TFTDisplay_ILI9341_DrawLine(2, 71, 230, 140, 0x001F);
+			  osDelay(100);
+//		  }
 
 	}
   /* USER CODE END 5 */
@@ -582,14 +581,19 @@ void StartTask04(void *argument)
   for(;;)
   {
 	    if(!(GPIOC -> IDR & 0x0800)){
-	        pid.expected += 0.1;
-	        pid.expected_i = (int)(10 * pid.expected);
+	    	if(pid.expected < 50){
+	    		pid.expected += 0.1;
+	    		pid.expected_i = (int)(10 * pid.expected);
+	    	}
 	        TFTDisplay_ILI9341_DrawChar(100, 150, 0x31);
 	        osDelay(40);
 	    }
 	    if(!(GPIOC -> IDR & 0x1000)){
-	        pid.expected -= 0.1;
-	        pid.expected_i = (int)(10 * pid.expected);
+	    	if(pid.expected >0){
+	    		pid.expected -= 0.1;
+	    		pid.expected_i = (int)(10 * pid.expected);
+	    	}
+
 	        TFTDisplay_ILI9341_DrawChar(100, 150, 0x32);
 	        osDelay(40);
 	    }
@@ -619,29 +623,33 @@ void StartTask04(void *argument)
 void StartTask05(void *argument)
 {
   /* USER CODE BEGIN StartTask05 */
-    PID_s_init(&pid, 10, 3, 0.9, tp);
-    Inercja_s_init(&in3, 1, tp, 5);
-    Inercja_s_init(&in4, 2, tp, 3);
-    pid.expected = 18;
-    in4.output = 17;
-    osDelay(100);
-  /* Infinite loop */
-  for(;;)
-  {
-
-	    pid.input = in4.output;
-	    Reg_s_step(&pid);
-	    //output = pid.output;
-	    in3.input = pid.output;
-	    Inercja_s_step(&in3);
-	    in4.input = in3.output;
-	    Inercja_s_step(&in4);
-	    Draw_info((int)(pid.input * 10), (int)(pid.expected * 10), false);
-	    wykres_draw(&entry);
+	   // PID_s_init(&pid, 10, 3, 0.9, tp);
+	    PID_s_init(&pid, 6.0, 5.6, 0.8, tp);
+	    Inercja_s_init(&in3, 1, tp, 5);
+	    Inercja_s_init(&in4, 2, tp, 10);
+	    pid.expected = 18;
+	    in3.last_input = 17.5;
+	    in4.last_input = 17.5;
+	    in4.output = 17.5;
+	  /* Infinite loop */
+	  for(;;)
+	  {
+//		printf("%d.\t", i);
+		pid.input = in4.output;
+		Reg_s_step(&pid);
+		//output = pid.output;
+		in3.input = pid.output;
+		Inercja_s_step(&in3);
+		in4.input = in3.output;
+		Inercja_s_step(&in4);
+		Draw_info((int)(in4.output * 10), (int)(pid.expected * 10), false);
+		err = abs(pid.expected_i - in4.output_i);
+		wykres_draw(&entry);
+		wykres_draw(&out);
+		wykres_draw(&errdr);
 //	    Draw_info(104, 152, false);
-
-	    osDelay(50);
-  }
+		osDelay(50);
+	  }
   /* USER CODE END StartTask05 */
 }
 
@@ -655,12 +663,29 @@ void StartTask05(void *argument)
 void StartLCDTask_cd(void *argument)
 {
   /* USER CODE BEGIN StartLCDTask_cd */
-	wykres_init(&entry, "in", &pid.expected_i, 0);
+	wykres_init(&entry, "in", &pid.expected_i, 0, 0xF800);
+	wykres_init(&out, "out", &in4.output_i, 0, 0x001F);
+	wykres_init(&errdr, "err", &err, 0, 0x07E0);
   /* Infinite loop */
   for(;;)
   {
+	TFTDisplay_ILI9341_FillRect(20, 21, 238, 119, 0xFFFF);
 	wykres_show(&entry);
-    osDelay(10);
+	wykres_show(&out);
+	wykres_show(&errdr);
+
+    if(in4.output < 10){
+    	TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_PURPLE);
+    }else if (in4.output < 20){
+    	TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_GREEN);
+    }else if(in4.output < 30){
+    	TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_BLUE);
+    }else if(in4.output < 40){
+
+    }else{
+
+    }
+    osDelay(18);
   }
   /* USER CODE END StartLCDTask_cd */
 }

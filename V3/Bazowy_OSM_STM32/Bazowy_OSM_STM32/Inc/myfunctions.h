@@ -26,6 +26,7 @@ typedef struct{
     int* source_data;
     int offset;
     int last_temps[220];
+    uint16_t color;
 }wykres_s;
 
 void Draw_info(int real_temp, int exp_temp, bool window);
@@ -33,6 +34,6 @@ void SetPixel(int x, int y, uint16_t color);
 void Draw_image(const uint16_t* img);
 void Draw_image2(const uint16_t* img);
 void Draw_image3(const uint16_t* img, int offset);
-void wykres_init(wykres_s* wykres, char* name, int* source, int off);
+void wykres_init(wykres_s* wykres, char* name, int* source, int off, uint16_t color);
 void wykres_draw(wykres_s* wykres);
 void wykres_show(wykres_s* wykres);

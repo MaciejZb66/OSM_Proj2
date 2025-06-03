@@ -53,7 +53,7 @@ void Draw_image3(const uint16_t* img, int offset){
     }
 }
 
-void wykres_init(wykres_s* wykres, char* name, int* source, int off){
+void wykres_init(wykres_s* wykres, char* name, int* source, int off, uint16_t color){
     for(int i = 0; i < wykres_char; i++){
         wykres->os_y_name[i] = name[i];
         if(sizeof(name) + 1 < i){
@@ -67,6 +67,7 @@ void wykres_init(wykres_s* wykres, char* name, int* source, int off){
     wykres->last_temps_insert = 0;
     wykres->source_data = source;
     wykres->offset = off;
+    wykres->color = color;
 }
 
 void wykres_draw(wykres_s* wykres){
@@ -82,11 +83,11 @@ void wykres_draw(wykres_s* wykres){
 }
 
 void wykres_show(wykres_s* wykres){
-	TFTDisplay_ILI9341_FillRect(0, 21, 240, 70, 0x0000);
+//	TFTDisplay_ILI9341_FillScreen(0x001F);
     //data
     for(int i = 0; i< 220; i++){
         // TFTDisplay_ILI9341_DrawPixel(140, 140, TFT_COLOR_ILI9341_WHITE);
-        SetPixel(i+19, ((500-wykres->last_temps[i] - (10 * wykres->offset))/5)+20, 0x8000);
+        SetPixel(i+19, ((500-wykres->last_temps[i] - (10 * wykres->offset))/5)+20, wykres->color);
         SetPixel(i+19, 120, 0xF410);
         if (i < 100){
             SetPixel(19, i+20, 0xF410);

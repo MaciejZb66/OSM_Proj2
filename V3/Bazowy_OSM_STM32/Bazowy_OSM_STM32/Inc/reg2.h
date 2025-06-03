@@ -10,6 +10,7 @@ typedef struct
 typedef struct{
     float last_input, kp, tin ,ts, output;
     float input;
+    int output_i;
 }Inercja_s;
 
 void PID_s_init(PID_s* reg, float kp, float ti, float td, float t);
