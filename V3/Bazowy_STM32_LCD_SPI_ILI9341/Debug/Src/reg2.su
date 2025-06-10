@@ -1,0 +1,4 @@
+../Src/reg2.c:3:6:PID_s_init	32	static
+../Src/reg2.c:12:6:Reg_s_step	24	static
+../Src/reg2.c:35:6:Inercja_s_init	24	static
+../Src/reg2.c:42:6:Inercja_s_step	16	static

@@ -52,7 +52,7 @@
 ../Src/main.c:434:13:MX_GPIO_Init	32	static
 ../Src/main.c:494:6:DMA1_Stream4_TransferComplete	8	static
 ../Src/main.c:515:6:StartLCDTask	24	static
-../Src/main.c:576:6:StartTask04	16	static
-../Src/main.c:623:6:StartTask05	16	static
-../Src/main.c:663:6:StartLCDTask_cd	24	static
-../Src/main.c:697:6:Error_Handler	4	static
+../Src/main.c:577:6:StartTask04	16	static
+../Src/main.c:625:6:StartTask05	16	static
+../Src/main.c:667:6:StartLCDTask_cd	24	static
+../Src/main.c:702:6:Error_Handler	4	static

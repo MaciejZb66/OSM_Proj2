@@ -2682,3 +2682,8 @@
 2025-06-03 08:38:40,384 [WARN] FreeRTOS:1000 - Null or empty value: should not occur! (nothing added to the table)
 2025-06-03 08:38:40,519 [INFO] RtosManager:604 - Active RTOS found at IOC load: FREERTOS [Cortex-M4NS]
 2025-06-03 08:38:40,572 [INFO] OpenFileManager:323 - Restore cursor
+2025-06-03 10:25:12,474 [INFO] Activator:177 - 
+
+
+2025-06-03 10:25:12,476 [INFO] Activator:178 - !SESSION log4j initialized
+2025-06-03 10:25:15,610 [ERROR] AnalyticsContext:980 - The ST intranet updater server is unknown: mcucrossselector.codex.cro.st.com

@@ -559,7 +559,8 @@ void StartLCDTask(void *argument)
 //		TFTDisplay_ILI9341_FillRect(2, 71, 230, 140, 0x001F);
 //		osDelay(100);
 //		TFTDisplay_ILI9341_DrawLine(2, 71, 230, 140, 0x001F);
-			  osDelay(100);
+
+		osDelay(100);
 //		  }
 
 	}
@@ -605,6 +606,7 @@ void StartTask04(void *argument)
 //	        TFTDisplay_ILI9341_DrawChar(100, 120, 0x31);
 //	    }
 //		TFTDisplay_ILI9341_DrawChar(100, 120, 0x31); //według fizyki czarnej dziury tu to nie działa
+
 	    osDelay(10);
 
 
@@ -648,7 +650,9 @@ void StartTask05(void *argument)
 		wykres_draw(&out);
 		wykres_draw(&errdr);
 //	    Draw_info(104, 152, false);
+
 		osDelay(50);
+
 	  }
   /* USER CODE END StartTask05 */
 }
@@ -669,23 +673,24 @@ void StartLCDTask_cd(void *argument)
   /* Infinite loop */
   for(;;)
   {
+		if(in4.output_i < 100){
+			TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_PURPLE);
+		}else if (in4.output_i < 200){
+			TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_GREEN);
+		}else if(in4.output_i < 300){
+			TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_BLUE);
+		}else if(in4.output_i < 400){
+			TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_GREEN);
+		}else{
+			TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_PURPLE);
+		}
 	TFTDisplay_ILI9341_FillRect(20, 21, 238, 119, 0xFFFF);
 	wykres_show(&entry);
 	wykres_show(&out);
 	wykres_show(&errdr);
+//	TFTDisplay_ILI9341_FillRect(100, 260, 140, 300, TFT_COLOR_ILI9341_PURPLE);
 
-    if(in4.output < 10){
-    	TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_PURPLE);
-    }else if (in4.output < 20){
-    	TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_GREEN);
-    }else if(in4.output < 30){
-    	TFTDisplay_ILI9341_FillRect(100, 280, 140, 320, TFT_COLOR_ILI9341_BLUE);
-    }else if(in4.output < 40){
-
-    }else{
-
-    }
-    osDelay(18);
+    osDelay(30);
   }
   /* USER CODE END StartLCDTask_cd */
 }
